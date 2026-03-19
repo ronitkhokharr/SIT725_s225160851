@@ -1,0 +1,14 @@
+{
+  "name": "1.4p",
+  "version": "1.0.0",
+  "description": "Express server for SIT725 task",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ronit Khokhar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
