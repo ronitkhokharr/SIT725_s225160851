@@ -1,16 +1,39 @@
-console.log("Welcome to Task 1.3P");
-
-let studentName = "Ronit Khokhar";
-let studentID = "225160851";
-
-console.log("Student Name:", studentName);
-console.log("Student ID:", studentID);
-
-// simple function
-function multiplyNumbers(a, b) {
-    return a * b;
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIT 725 Prac 1</title>
+<meta name="description" content="basic template for SIT 725 Prac 1">
+<meta name="author" content="SitePoint">
+<meta property="og:title" content="SIT 725 Prac 1">
+<meta property="og:type" content="website">
+<meta property="og:description" content="basic template for SIT 725 Prac 1">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col s12">
+<h1 id="heading" class="center-align">SIT 725</h1>
+</div>
+<div class="col s12 center-align">
+<a class="waves-effect waves-light btn" onclick="changeText()">Change Text</a>
+</div>
+</div>
+</div>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
+function changeText(){
+var textsArray = ["Text 1","Text 2", "Text 3", "Text 4", "Text 5"]
+var number = getRandomNumberBetween(0,textsArray.length - 1)
+console.log("Index: ", number)
+document.getElementById("heading").innerHTML = textsArray[number];
 }
-
-let result = multiplyNumbers(6, 5);
-
-console.log("node Result:", result);
+function getRandomNumberBetween(min,max){
+return Math.floor(Math.random()*(max-min+1)+min);
+}

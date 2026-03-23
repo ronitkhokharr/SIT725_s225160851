@@ -1,4 +1,4 @@
-# SIT725 Task 1.4P
+# SIT725 Task 2.2P
 
 This project demonstrates a simple Express web server using Node.js.
 
