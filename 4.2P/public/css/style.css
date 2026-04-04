@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f6f8;
+  color: #222;
+}
+
+header {
+  background-color: #1f4e79;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+}
+
+header h1,
+header p {
+  margin: 0;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+.form-section {
+  width: 90%;
+  max-width: 700px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button {
+  background-color: #1f4e79;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #163955;
+}
+
+section h2 {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.book-grid {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.book-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.book-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.book-card h3,
+.book-card p {
+  word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 10px;
+  }
+
+  .form-section {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .book-grid {
+    width: 95%;
+    grid-template-columns: 1fr;
+  }
+}
