@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books Catalog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #book-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .book-card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .book-card h3 {
+      margin: 0 0 5px 0;
+    }
+
+    .book-card p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Books Catalog</h1>
+  <div id="book-list"></div>
+
+  <script>
+    fetch('/api/books')
+      .then(response => response.json())
+      .then(result => {
+        const books = result.data;
+        const bookList = document.getElementById('book-list');
+
+        books.forEach(book => {
+          const card = document.createElement('div');
+          card.className = 'book-card';
+          card.innerHTML = `
+            <h3>${book.title}</h3>
+            <p><strong>Author:</strong> ${book.author}</p>
+          `;
+          bookList.appendChild(card);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching books:', error);
+      });
+  </script>
+</body>
+</html>
