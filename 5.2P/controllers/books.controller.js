@@ -1,27 +1,39 @@
 const bookService = require('../services/books.service');
 
-const getAllBooks = (req, res) => {
-  const books = bookService.getAllBooks();
-  res.json({
-    statusCode: 200,
-    data: books
-  });
-};
-
-const getBookById = (req, res) => {
-  const book = bookService.getBookById(req.params.id);
-
-  if (!book) {
-    return res.status(404).json({
-      statusCode: 404,
-      message: 'Book not found'
+const getAllBooks = async (_req, res, next) => {
+  try {
+    const books = await bookService.getAllBooks();
+    res.status(200).json({
+      statusCode: 200,
+      data: books,
+      message: 'Books retrieved using service'
     });
+  } catch (err) {
+    next(err);
   }
-
-  res.json({
-    statusCode: 200,
-    data: book
-  });
 };
 
-module.exports = { getAllBooks, getBookById };
+const getBookById = async (req, res, next) => {
+  try {
+    const book = await bookService.getBookById(req.params.id);
+
+    if (!book) {
+      return res.status(404).json({
+        statusCode: 404,
+        message: 'Book not found'
+      });
+    }
+
+    res.status(200).json({
+      statusCode: 200,
+      data: book
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = {
+  getAllBooks,
+  getBookById
+};
