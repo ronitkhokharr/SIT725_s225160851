@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time Team Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Real-Time Team Dashboard</h1>
+
+        <div class="join-box">
+            <input type="text" id="username" placeholder="Enter your name">
+            <button onclick="joinDashboard()">Join Dashboard</button>
+        </div>
+
+        <div class="status-box">
+            <select id="statusSelect">
+                <option value="Available">Available</option>
+                <option value="Busy">Busy</option>
+                <option value="In Meeting">In Meeting</option>
+                <option value="Working Remotely">Working Remotely</option>
+                <option value="Offline">Offline</option>
+            </select>
+
+            <button onclick="changeStatus()">Update Status</button>
+        </div>
+
+        <h2>Active Users</h2>
+        <div id="users"></div>
+
+        <h2>Live Notifications</h2>
+        <div id="notifications"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
